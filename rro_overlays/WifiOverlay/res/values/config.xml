@@ -40,5 +40,5 @@
     <bool translatable="false" name="config_wifiSaeUpgradeEnabled">false</bool>
 
     <!-- Default access point SSID used for tethering -->
-    <string name="wifi_tether_configure_ssid_default" translatable="false">Samsung Galaxy S6</string>    
+    <string name="wifi_tether_configure_ssid_default" translatable="false">Samsung Galaxy S6 Edge</string>    
 </resources>
