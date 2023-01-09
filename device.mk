@@ -64,4 +64,4 @@ PRODUCT_COPY_FILES += \
 PRODUCT_SOONG_NAMESPACES += $(LOCAL_PATH)
 
 # Call the proprietary
-$(call inherit-product, vendor/samsung/zerofltexx/zeroltexx-vendor.mk)
+$(call inherit-product, vendor/samsung/zeroltexx/zeroltexx-vendor.mk)
