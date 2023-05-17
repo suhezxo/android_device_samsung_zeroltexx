@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/samsung/zerofltexx
+LOCAL_PATH := device/samsung/zeroltexx
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -64,4 +64,4 @@ PRODUCT_PACKAGES += \
 $(call inherit-product, device/samsung/universal7420-common/device-common.mk)
 
 # Call the proprietary
-$(call inherit-product, vendor/samsung/zerofltexx/zerofltexx-vendor.mk)
+$(call inherit-product, vendor/samsung/zeroltexx/zeroltexx-vendor.mk)

@@ -1,8 +1,8 @@
 cc_library_static {
-    name: "libinit_zeroflte",
+    name: "libinit_zerolte",
     recovery_available: true,
     srcs: [
-        "init_zeroflte.cpp",
+        "init_zerolte.cpp",
     ],
     whole_static_libs: ["libbase"],
     include_dirs: [
