@@ -20,9 +20,6 @@
 # definition file).
 #
 
-# inherit from universal7420-common
-include device/samsung/universal7420-common/BoardConfigCommon.mk
-
 DEVICE_PATH := device/samsung/zerofltexx
 
 # Assert
@@ -50,3 +47,11 @@ TARGET_KERNEL_CONFIG := lineageos_zerofltexx_defconfig
 # Manifest
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 
+# Soong
+PRODUCT_SOONG_NAMESPACES += $(LOCAL_PATH)
+
+# inherit from the proprietary version
+include vendor/samsung/zerofltexx/BoardConfigVendor.mk
+
+# inherit from universal7420-common
+include device/samsung/universal7420-common/BoardConfigCommon.mk
