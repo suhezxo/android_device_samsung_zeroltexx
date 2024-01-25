@@ -9,9 +9,7 @@
 set -e
 
 VENDOR=samsung
-DEVICE=zerofltexx
-
-export INITIAL_COPYRIGHT_YEAR=2015
+DEVICE=zeroltexx
 
 # Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
