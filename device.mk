@@ -31,6 +31,10 @@ PRODUCT_PACKAGES += \
 	android.hardware.ir@1.0-impl \
 	android.hardware.ir@1.0-service
 
+# Livedisplay
+PRODUCT_PACKAGES += \
+	vendor.lineage.livedisplay@2.1-service.zero
+
 # Thermal config
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/configs/thermal/thermal_info_config.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json
