@@ -29,9 +29,6 @@ PRODUCT_PACKAGES += \
 	android.hardware.ir@1.0-impl \
 	android.hardware.ir@1.0-service
 
-PRODUCT_COPY_FILES += \
-	device/samsung/universal7420-common/configs/init/rild.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/rild.legacy.rc
-
 # Livedisplay
 PRODUCT_PACKAGES += \
 	vendor.lineage.livedisplay@2.1-service.zero

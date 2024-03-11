@@ -51,16 +51,6 @@ vendor/lib64/libMcClient.so
 vendor/lib/libMcRegistry.so
 vendor/lib64/libMcRegistry.so
 
-# Radio
-lib/libsec-ril-dsds.so:vendor/lib/libsec-ril-dsds.so
-lib64/libsec-ril-dsds.so:vendor/lib64/libsec-ril-dsds.so
-lib/libsec-ril.so:vendor/lib/libsec-ril.so
-lib64/libsec-ril.so:vendor/lib64/libsec-ril.so
-
-# Protobuf 2.6 - precompiled from https://github.com/Exynos7580/android_external_protobuf-compat-2.6
-lib/libprotobuf-cpp-full.so:vendor/lib/libprotobuf-cpp-fl26.so
-lib64/libprotobuf-cpp-full.so:vendor/lib64/libprotobuf-cpp-fl26.so
-
 # NFC - A810FXXU2CRL1 (O)
 vendor/lib/hw/nfc_nci.default.so|c6b2292323b827f3261ba33956604b90de8a29cd
 vendor/lib64/hw/nfc_nci.default.so|347836411179d98a47c7de7bf9e92ac00c5a742a
