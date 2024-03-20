@@ -22,6 +22,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/configs/audio/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_0.xml
 
+# Bluetooth
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/bluetooth/bt_vendor.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/bluetooth/bt_vendor.conf
+
 # IR
 PRODUCT_PACKAGES += \
 	android.hardware.ir@1.0-impl \
