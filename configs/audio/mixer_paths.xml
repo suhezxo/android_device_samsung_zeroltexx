@@ -1,5 +1,5 @@
 <mixer>
-    <pcmdai playback_link="6" />
+	<pcmdai playback_link="6" />
 	<pcmdai playback_jam_link="7" />
 	<pcmdai playback_deep_link="3" />
 	<pcmdai capture_link="0" />
@@ -137,7 +137,7 @@
 		<ctl name="AIF1TX2 Input 1" value="LHPF1" />
 	</path>
 
-    <path name="mute-speaker">
+	<path name="mute-speaker">
 		<ctl name="DSP5L Input 1 Volume" value="0" />
 		<ctl name="DSP5L Input 2 Volume" value="0" />
 		<ctl name="AIF4TX1 Input 1 Volume" value="0" />
@@ -164,7 +164,7 @@
 		<ctl name="HPOUT1R Impedance Volume" value="114" />
 	</path>
 
-    <!-- Output stage -->
+	<!-- Output stage -->
 	<!-- media playback -->
 	<path name="media-handset">
 		<ctl name="CP Mode" value="Inverting" />
@@ -188,9 +188,6 @@
 		<ctl name="ISRC4INT2 Input" value="AIF4RX2" />
 		<ctl name="DSP5 Aux 2" value="ISRC4INT1" />
 		<ctl name="DSP5 Aux 3" value="ISRC4INT2" />
-		<ctl name="HPOUT3L Input 1" value="AIF1RX1" />
-		<ctl name="HPOUT3R Input 1" value="AIF1RX2" />
-		<ctl name="RCV Switch" value="1" />
 		<ctl name="VI SENSING Switch" value="1" />
 		<ctl name="SPK Switch" value="1" />
 	</path>
@@ -204,7 +201,12 @@
 		<ctl name="HPOUT1R Input 1" value="AIF1RX2" />
 	</path>
 
-    <path name="incall_nb-handset">
+	<path name="media-speaker-headset">
+		<path name="media-speaker" />
+		<path name="media-headset" />
+	</path>
+
+	<path name="incall_nb-handset">
 		<path name="mute-headset" />
 		<path name="mute-speaker" />
 		<ctl name="AIF2 Mode" value="Slave" />
@@ -233,7 +235,7 @@
 		<ctl name="AIF1TX2 Input 2" value="ISRC2INT1" />
 	</path>
 
-    <path name="incall_nb-speaker">
+	<path name="incall_nb-speaker">
 		<path name="mute-headset" />
 		<path name="unmute-speaker" />
 		<ctl name="AIF2 Mode" value="Slave" />
@@ -265,7 +267,7 @@
 		<ctl name="AIF1TX2 Input 2" value="ISRC2INT1" />
 	</path>
 
-    <path name="incall_nb-headset">
+	<path name="incall_nb-headset">
 		<path name="mute-speaker" />
 		<path name="unmute-headset" />
 		<ctl name="AIF2 Mode" value="Slave" />
@@ -303,7 +305,7 @@
 		<ctl name="AIF1TX2 Input 2" value="ASRC1IN2R" />
 	</path>
 
-    <!-- WB -->
+	<!-- WB -->
 	<path name="incall_wb-handset">
 		<path name="mute-headset" />
 		<path name="mute-speaker" />
@@ -369,7 +371,7 @@
 		<path name="incall_nb-headset" />
 	</path>
 
-    <path name="incall_wb-bt-sco-headset">
+	<path name="incall_wb-bt-sco-headset">
 		<path name="mute-headset" />
 		<ctl name="AIF2 Mode" value="Slave" />
 		<ctl name="Sample Rate 2" value="16kHz" />
@@ -391,7 +393,7 @@
 		<ctl name="AIF1TX2 Input 2" value="ASRC1IN2R" />
 	</path>
 
-    <path name="media-bt-sco-headset">
+	<path name="media-bt-sco-headset">
 		<ctl name="ISRC2 FSL" value="SYNCCLK rate 2" />
 		<ctl name="ISRC2 FSH" value="SYNCCLK rate 1" />
 		<ctl name="AIF3TX1 Input 1" value="ISRC2DEC1" />
@@ -400,13 +402,13 @@
 		<ctl name="ISRC2DEC2 Input" value="AIF1RX2" />
 	</path>
 
-    <!-- Input stage -->
+	<!-- Input stage -->
 	<path name="main-mic">
 		<ctl name="LHPF1 Input 1" value="IN1L" />
 		<ctl name="Main Mic Switch" value="1" />
 	</path>
 
-    <path name="2nd-mic">
+	<path name="2nd-mic">
 		<ctl name="LHPF2 Input 1" value="IN3L" />
 		<ctl name="Sub Mic Switch" value="1" />
 	</path>
@@ -414,6 +416,18 @@
 	<path name="3rd-mic">
 		<ctl name="LHPF2 Input 1" value="IN4R" />
 		<ctl name="Third Mic Switch" value="1" />
+	</path>
+
+	<!-- media input -->
+	<path name="media-mic">
+		<path name="capture_channel_left" />
+		<path name="main-mic" />
+	</path>
+
+	<path name="media-headset-mic">
+		<path name="capture_channel_left" />
+		<ctl name="LHPF1 Input 1" value="IN2L" />
+		<ctl name="Headset Mic Switch" value="1" />
 	</path>
 
 	<path name="media-bt-sco-headset-in">
@@ -425,20 +439,93 @@
 		<ctl name="AIF1TX2 Input 1" value="ISRC2INT2" />
 	</path>
 
-    <path name="camcorder-headphone-mic">
-        <path name="camcorder-mic-oe" />
-    </path>
+	<path name="camcorder-headphone-mic">
+		<path name="camcorder-mic-oe" />
+	</path>
 
+	<!-- voice input -->
+	<!-- voice_control_with_okgoogle input -->
+	<path name="voice_control_with_okgoogle-mic">
+		<ctl name="Sample Rate 2" value="16kHz" />
+		<ctl name="ISRC2 FSL" value="SYNCCLK rate 2" />
+		<ctl name="ISRC2 FSH" value="SYNCCLK rate 1" />
+		<ctl name="DSP6 Rate" value="SYNCCLK rate 2" />
+		<ctl name="VoiceControl Mode" value="Normal" />
+		<ctl name="In Rate" value="SYNCCLK rate 2" />
+		<ctl name="DSP6 Firmware" value="VOICECONTROL" />
+		<ctl name="IN1 OSR" value="1.536MHz" />
+		<ctl name="ISRC2DEC1 Input" value="IN1L" />
+		<ctl name="DSP6 Aux 1" value="ISRC2DEC1" />
+		<ctl name="DSP Virtual Output Mux" value="DSP6" />
+		<ctl name="Main Mic Switch" value="1" />
+	  <!--recording route -->
+		<ctl name="LHPF1 Input 1" value="IN1L" />
+		<ctl name="AIF1TX1 Input 1" value="LHPF1" />
+		<ctl name="AIF1TX2 Input 1" value="LHPF1" />
+	</path>
 
-        <!-- camcorder input -->
-       <path name="camcorder-mic-oe">
-               <path name="capture_channel_left"/>
-               <path name="main-mic" />
-               <path name="2nd-mic" />
-                <path name="gain-media-mic"/>
-       </path>
+	<!-- voice_control_with_okgoogle input headset -->
+	<path name="voice_control_with_okgoogle-headset-mic">
+		<ctl name="Sample Rate 2" value="16kHz" />
+		<ctl name="ISRC2 FSL" value="SYNCCLK rate 2" />
+		<ctl name="ISRC2 FSH" value="SYNCCLK rate 1" />
+		<ctl name="DSP6 Rate" value="SYNCCLK rate 2" />
+		<ctl name="VoiceControl Mode" value="Normal" />
+		<ctl name="In Rate" value="SYNCCLK rate 2" />
+		<ctl name="DSP6 Rate" value="SYNCCLK rate 2" />
+		<ctl name="DSP6 Firmware" value="VOICECONTROL" />
+		<ctl name="IN1 OSR" value="1.536MHz" />
+		<ctl name="ISRC2DEC1 Input" value="IN1L" />
+		<ctl name="DSP6 Aux 1" value="ISRC2DEC1" />
+		<ctl name="DSP Virtual Output Mux" value="DSP6" />
+		<ctl name="Main Mic Switch" value="1" />
+	  <!--recording route -->
+		<ctl name="Headset Mic Switch" value="1" />
+		<ctl name="LHPF1 Input 1" value="IN2L" />
+		<ctl name="AIF1TX1 Input 1" value="LHPF1" />
+		<ctl name="AIF1TX2 Input 1" value="LHPF1" />
+	</path>
 
-    <!-- NB -->
+	<!-- camcorder input -->
+	<path name="camcorder-mic-oe">
+			<path name="capture_channel_left"/>
+			<path name="main-mic" />
+			<path name="2nd-mic" />
+			<path name="gain-media-mic"/>
+	</path>
+
+	<!-- communication input -->
+	<path name="communication-handset-mic">
+		<path name="media-mic" />
+	</path>
+
+	<path name="communication-speaker-mic">
+		<path name="capture_channel_right" />
+		<path name="2nd-mic" />
+	</path>
+
+	<path name="communication-headset-mic">
+		<path name="media-headset-mic" />
+	</path>
+
+	<!-- CP Call input -->
+	<!-- call default input -->
+	<path name="incall_default-handset-mic">
+		<path name="main-mic" />
+		<ctl name="AIF2 Mode" value="Slave" />
+		<ctl name="Sample Rate 2" value="16kHz" />
+		<ctl name="ASRC1 Rate 1" value="SYNCCLK rate 2" />
+		<ctl name="ISRC2 FSL" value="SYNCCLK rate 2" />
+		<ctl name="ISRC2 FSH" value="SYNCCLK rate 1" />
+		<ctl name="ISRC2DEC1 Input" value="IN1L" />
+		<ctl name="ASRC1IN1L Input" value="ISRC2DEC1" />
+		<ctl name="ASRC1IN1R Input" value="ISRC2DEC1" />
+		<ctl name="AIF2TX1 Input 1" value="ASRC1IN1L" />
+		<ctl name="AIF2TX2 Input 1" value="ASRC1IN1R" />
+		<path name="capture_channel_left" />
+	</path>
+
+	<!-- NB -->
 	<path name="incall_nb-handset-mic">
 		<ctl name="Headset Mic Switch" value="0" />
 		<ctl name="Main Mic Switch" value="1" />
@@ -475,7 +562,7 @@
 		<ctl name="AIF1TX2 Input 1" value="LHPF1" />
 	</path>
 
-    <path name="incall_nb-speaker-mic">
+	<path name="incall_nb-speaker-mic">
 		<ctl name="Headset Mic Switch" value="0" />
 		<ctl name="Main Mic Switch" value="1" />
 		<ctl name="Sub Mic Switch" value="1" />
@@ -509,7 +596,7 @@
 		<ctl name="AIF1TX2 Input 1" value="LHPF2" />
 	</path>
 
-    <path name="incall_nb-headset-mic">
+	<path name="incall_nb-headset-mic">
 		<ctl name="Headset Mic Switch" value="1" />
 		<ctl name="ASRC1IN1L Input" value="IN2L" />
 		<ctl name="AIF2TX1 Input 1" value="ASRC1IN1L" />
@@ -520,7 +607,7 @@
 		<ctl name="AIF1TX2 Input 1" value="LHPF1" />
 	</path>
 
-    <path name="incall_nb-bt-sco-headset-in">
+	<path name="incall_nb-bt-sco-headset-in">
 		<path name="mute-speaker" />
 		<ctl name="Sample Rate 2" value="8kHz" />
 		<ctl name="ASRC1 Rate 1" value="SYNCCLK rate 1" />
@@ -537,7 +624,7 @@
 		<ctl name="AIF1TX2 Input 1" value="ISRC2INT2" />
 	</path>
 
-    <!-- WB -->
+	<!-- WB -->
 	<path name="incall_wb-handset-mic">
 		<ctl name="Headset Mic Switch" value="0" />
 		<ctl name="Main Mic Switch" value="1" />
@@ -572,7 +659,7 @@
 		<ctl name="AIF1TX2 Input 1" value="LHPF1" />
 	</path>
 
-    <path name="incall_wb-speaker-mic">
+	<path name="incall_wb-speaker-mic">
 		<ctl name="Headset Mic Switch" value="0" />
 		<ctl name="Main Mic Switch" value="1" />
 		<ctl name="Sub Mic Switch" value="1" />
@@ -604,11 +691,11 @@
 		<ctl name="AIF1TX2 Input 1" value="LHPF2" />
 	</path>
 
-    <path name="incall_wb-headset-mic">
+	<path name="incall_wb-headset-mic">
 		<path name="incall_nb-headset-mic" />
 	</path>
 
-    <path name="incall_wb-bt-sco-headset-in">
+	<path name="incall_wb-bt-sco-headset-in">
 		<path name="mute-speaker" />
 		<ctl name="Sample Rate 2" value="16kHz" />
 		<ctl name="ASRC1 Rate 1" value="SYNCCLK rate 1" />
@@ -625,14 +712,14 @@
 		<ctl name="AIF1TX2 Input 1" value="ISRC2INT2" />
 	</path>
 
-    <!-- Output volume stage -->
+	<!-- Output volume stage -->
 	<!-- media playback volume -->
 	<path name="gain-media-handset">
 		<ctl name="HPOUT3L Input 1 Volume" value="31" />
 		<ctl name="HPOUT3R Input 1 Volume" value="31" />
 	</path>
 
-    <path name="gain-media-speaker">
+	<path name="gain-media-speaker">
 		<ctl name="DSP5L Input 1 Volume" value="26" />
 		<ctl name="DSP5L Input 2 Volume" value="26" />
 		<ctl name="HPOUT3L Input 1 Volume" value="40" />
@@ -641,13 +728,11 @@
 		<ctl name="AIF4TX2 Input 1 Volume" value="40" />
 	</path>
 
-    <path name="gain-media-headset">
-        <ctl name="Noise Gate Switch" value="0" />
-        <ctl name="HPOUT1L Impedance Volume" value="70" />
-        <ctl name="HPOUT1R Impedance Volume" value="70" />
-        <ctl name="HPOUT1L Input 1 Volume" value="26" />
-        <ctl name="HPOUT1R Input 1 Volume" value="26" />
-</path>
+	<path name="gain-media-headset">
+		<ctl name="Noise Gate Switch" value="0" />
+		<ctl name="AIF4TX1 Input 1 Volume" value="32" />
+		<ctl name="AIF4TX2 Input 1 Volume" value="32" /> />
+	</path>
 
 	<path name="gain-media-speaker-headset">
 		<ctl name="DSP5L Input 1 Volume" value="26" />
@@ -671,17 +756,17 @@
 		<ctl name="AIF1TX2 Input 1 Volume" value="32" />
 	</path>
 
-    <!-- NB volume -->
+	<!-- NB volume -->
 	<path name="gain-incall_nb-handset">
-		<ctl name="HPOUT3L Input 1 Volume" value="32" />
-		<ctl name="HPOUT3R Input 1 Volume" value="32" />
-		<ctl name="HPOUT3L Input 2 Volume" value="32" />
-		<ctl name="HPOUT3R Input 2 Volume" value="32" />
+		<ctl name="HPOUT3L Input 1 Volume" value="22" />
+		<ctl name="HPOUT3R Input 1 Volume" value="22" />
+		<ctl name="HPOUT3L Input 2 Volume" value="22" />
+		<ctl name="HPOUT3R Input 2 Volume" value="22" />
 		<param name="DSP4 XM f010:0" value="0 0 0 1 0 0 0 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 0 0 0 5 0 0 0 7 0 0 0 9 0 0 0 11 0 0 0 13 0 0 0 4 0 0 0 4 0 0 0 18 0 0 0 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 1" />
 		<param name="DSP4 XM f010:1" value="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3" />
 	</path>
 
-    <path name="gain-incall_nb-speaker">
+	<path name="gain-incall_nb-speaker">
 		<ctl name="DSP5L Input 1 Volume" value="26" />
 		<ctl name="DSP5L Input 2 Volume" value="26" />
 		<ctl name="AIF4TX1 Input 1 Volume" value="32" />
@@ -690,7 +775,7 @@
 		<param name="DSP4 XM f010:1" value="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3" />
 	</path>
 
-    <path name="gain-incall_nb-headset">
+	<path name="gain-incall_nb-headset">
 		<ctl name="Noise Gate Switch" value="0" />
 		<ctl name="HPOUT1L Impedance Volume" value="113" />
 		<ctl name="HPOUT1R Impedance Volume" value="113" />
@@ -700,24 +785,24 @@
 		<ctl name="HPOUT1R Input 2 Volume" value="32" />
 	</path>
 
-    <path name="gain-incall_nb-bt-sco-headset">
+	<path name="gain-incall_nb-bt-sco-headset">
 		<ctl name="AIF3TX1 Input 1 Volume" value="32" />
 		<ctl name="AIF3TX2 Input 1 Volume" value="32" />
 		<ctl name="AIF3TX1 Input 2 Volume" value="32" />
 		<ctl name="AIF3TX2 Input 2 Volume" value="32" />
 	</path>
 
-    <!-- WB volume -->
+	<!-- WB volume -->
 	<path name="gain-incall_wb-handset">
-		<ctl name="HPOUT3L Input 1 Volume" value="30" />
-		<ctl name="HPOUT3R Input 1 Volume" value="30" />
-		<ctl name="HPOUT3L Input 2 Volume" value="30" />
-		<ctl name="HPOUT3R Input 2 Volume" value="30" />
+		<ctl name="HPOUT3L Input 1 Volume" value="32" />
+		<ctl name="HPOUT3R Input 1 Volume" value="32" />
+		<ctl name="HPOUT3L Input 2 Volume" value="32" />
+		<ctl name="HPOUT3R Input 2 Volume" value="32" />
 		<param name="DSP4 XM f011:0" value="0 0 0 1 0 0 0 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 0 0 0 5 0 0 0 7 0 0 0 9 0 0 0 11 0 0 0 13 0 0 0 4 0 0 0 4 0 0 0 18 0 0 0 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 0 0 0 1" />
 		<param name="DSP4 XM f011:1" value="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3" />
 	</path>
 
-    <path name="gain-incall_wb-speaker">
+	<path name="gain-incall_wb-speaker">
 		<ctl name="DSP5L Input 1 Volume" value="26" />
 		<ctl name="DSP5L Input 2 Volume" value="26" />
 		<ctl name="AIF4TX1 Input 1 Volume" value="32" />
@@ -736,25 +821,49 @@
 		<ctl name="HPOUT1R Input 2 Volume" value="32" />
 	</path>
 
-    <path name="gain-incall_wb-bt-sco-headset">
+	<path name="gain-incall_wb-bt-sco-headset">
 		<ctl name="AIF3TX1 Input 1 Volume" value="32" />
 		<ctl name="AIF3TX2 Input 1 Volume" value="32" />
 	</path>
 
-    <!-- Input stage volume -->
+	<!-- Input stage volume -->
 	<!-- media input volume -->
 	<path name="gain-media-mic">
 		<ctl name="IN1L Digital Volume" value="128" />
 		<ctl name="LHPF1 Input 1 Volume" value="32" />
 	</path>
 
-    <path name="gain-media-headset-mic">
+	<path name="gain-media-headset-mic">
 		<ctl name="IN2L Volume" value="30" />
 		<ctl name="IN2L Digital Volume" value="128" />
 		<ctl name="LHPF1 Input 1 Volume" value="32" />
 	</path>
 
-    <!-- NB volume -->
+	<!-- communication input volume -->
+	<path name="gain-communication-handset-mic">
+		<ctl name="IN1L Digital Volume" value="140" />
+		<ctl name="LHPF1 Input 1 Volume" value="32" />
+	</path>
+
+	<path name="gain-communication-speaker-mic">
+		<ctl name="IN3L Digital Volume" value="128" />
+		<ctl name="LHPF2 Input 1 Volume" value="32" />
+	</path>
+
+	<path name="gain-communication-headset-mic">
+		<ctl name="IN2L Volume" value="38" />
+		<ctl name="IN2L Digital Volume" value="140" />
+		<ctl name="LHPF1 Input 1 Volume" value="32" />
+	</path>
+
+	<!-- CP Call Input volume -->
+	<!-- call default volume -->
+	<path name="gain-incall_default-handset-mic">
+		<ctl name="IN1L Digital Volume" value="98" />
+		<ctl name="IN3L Digital Volume" value="98" />
+	</path>
+
+	<!-- NB volume -->
 	<path name="gain-incall_nb-handset-mic">
 		<ctl name="IN1L Digital Volume" value="136" />
 		<ctl name="IN3L Digital Volume" value="136" />
@@ -763,7 +872,7 @@
 		<param name="DSP3 XM f002:1" value="0 0 230 85 0 0 230 85 0 0 230 85 0 1 69 91 0 0 230 85 0 0 230 85 0 15 133 30 0 1 153 154 0 0 0 16 0 1 0 0 0 0 0 0 0 1 64 0 0 0 41 95 0 6 0 0 0 0 0 0 0 0 0 100 0 1 174 16 0 0 12 0 0 14 79 103 0 4 0 0 0 4 0 0 0 0 16 0 0 15 128 0 0 6 0 0 0 15 246 0 0 1 208 0 0 3 0 0 0 5 64 0 0 13 192 0 0 0 0 0 0 0 0 0 0 0 102 102 0 0 102 102 0 0 102 102 0 0 102 102 0 0 102 102 0 0 102 102 0 0 0 2 0 3 51 51 0 0 224 0 0 0 4 76 0 0 51 64 0 0 0 37 0 0 0 0 0 0 0 0 0 0 0 15 0 217 25 125 0 3 0 0 0 0 64 0 0 0 16 0 0 4 0 0 0 1 153 154 0 2 238 0 0 9 153 153 0 12 0 0 0 13 153 153 0 13 0 0 0 2 64 0 0 2 66 147 0 0 0 3 0 0 0 65 0 4 0 0 0 0 0 126 0 1 0 0 0 0 0 0 0 255 255 216 0 11 59 0 0 2 66 147 0 2 66 147 0 2 66 147 0 2 66 147 0 2 66 147 0 2 66 147 0 1 69 91 0 2 66 147 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 13 153 153 0 8 0 0 0 15 133 30 0 15 133 30 0 15 133 30 0 15 133 30 0 15 133 30 0 15 133 30 0 15 133 30 0 15 133 30 0 0 179 51 0 0 32 0 0 4 0 0 0 0 0 40 0 16 0 0 0 255 255 241 0 0 250 0 0 0 143 192 0 6 89 0 0 12 53 0 0 12 53 0 0 2 238 0 0 0 1 64 0 12 204 192 0 255 255 239 0 16 0 0 0 16 0 0 0 16 0 0 0 16 0 0 0 16 0 0 0 16 0 0 0 16 0 0 0 16 0 0 0 0 0 1 0 0 20 160 0 0 20 160 0 0 20 160 0 0 5 32 0 0 25 192 0 16 0 0 0 1 179 64 0 16 0 0 0 16 0 0 0 0 0 0 0 0 165 165" />
 	</path>
 
-    <path name="gain-incall_nb-speaker-mic">
+	<path name="gain-incall_nb-speaker-mic">
 		<ctl name="IN1L Digital Volume" value="128" />
 		<ctl name="IN3L Digital Volume" value="140" />
 		<ctl name="LHPF2 Input 1 Volume" value="32" />
@@ -777,14 +886,14 @@
 		<ctl name="LHPF1 Input 1 Volume" value="32" />
 	</path>
 
-    <path name="gain-incall_nb-bt-sco-headset-in">
+	<path name="gain-incall_nb-bt-sco-headset-in">
 		<ctl name="AIF2TX1 Input 1 Volume" value="32" />
 		<ctl name="AIF2TX2 Input 1 Volume" value="32" />
 		<ctl name="AIF1TX1 Input 1 Volume" value="32" />
 		<ctl name="AIF1TX2 Input 1 Volume" value="32" />
 	</path>
 
-    <!-- WB volume -->
+	<!-- WB volume -->
 	<path name="gain-incall_wb-handset-mic">
 		<ctl name="IN1L Digital Volume" value="118" />
 		<ctl name="IN3L Digital Volume" value="118" />
@@ -793,65 +902,82 @@
 		<param name="DSP3 XM f003:1" value="0 0 230 85 0 2 3 167 0 2 3 167 0 2 216 98 0 1 153 153 0 1 69 91 0 15 133 30 0 1 153 154 0 0 0 16 0 1 0 0 0 0 0 0 0 1 64 0 0 0 41 95 0 6 0 0 0 0 0 0 0 0 0 100 0 1 174 16 0 0 12 0 0 14 79 103 0 4 0 0 0 4 0 0 0 0 16 0 0 15 128 0 0 6 0 0 0 15 246 0 0 1 208 0 0 3 0 0 0 5 64 0 0 13 192 0 0 0 0 0 0 0 0 0 0 0 102 102 0 0 102 102 0 0 102 102 0 0 102 102 0 0 102 102 0 0 102 102 0 0 0 1 0 3 51 51 0 0 224 0 0 0 4 76 0 0 51 64 0 0 0 37 0 0 0 0 0 0 0 0 0 0 0 26 0 169 121 48 0 3 0 0 0 0 64 0 0 0 16 0 0 4 0 0 0 1 153 154 0 2 238 0 0 9 153 153 0 12 0 0 0 13 153 153 0 13 0 0 0 2 64 0 0 2 66 147 0 0 0 3 0 0 0 65 0 4 0 0 0 0 0 240 0 0 128 0 0 0 0 1 0 255 255 216 0 11 59 0 0 2 216 98 0 4 4 222 0 1 69 91 0 5 15 68 0 5 15 68 0 7 37 157 0 2 66 147 0 2 66 147 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 15 133 30 0 15 133 30 0 15 133 30 0 15 133 30 0 15 133 30 0 15 133 30 0 15 133 30 0 15 133 30 0 0 179 51 0 0 35 231 0 4 0 0 0 0 0 40 0 16 0 0 0 255 255 241 0 0 187 128 0 0 143 192 0 6 89 0 0 13 47 0 0 12 53 0 0 2 238 0 0 0 1 64 0 12 204 192 0 255 255 239 0 16 0 0 0 16 0 0 0 16 0 0 0 16 0 0 0 16 0 0 0 16 0 0 0 16 0 0 0 16 0 0 0 0 0 1 0 0 20 160 0 0 20 160 0 0 20 160 0 0 5 32 0 0 25 192 0 16 0 0 0 1 179 64 0 16 0 0 0 16 0 0 0 0 0 0 0 0 90 90" />
 	</path>
 
-    <path name="gain-incall_wb-speaker-mic">
-		<ctl name="IN1L Digital Volume" value="108" />
-		<ctl name="IN3L Digital Volume" value="108" />
+	<path name="gain-incall_wb-speaker-mic">
+		<ctl name="IN1L Digital Volume" value="128" />
+		<ctl name="IN3L Digital Volume" value="140" />
 		<ctl name="LHPF2 Input 1 Volume" value="32" />
 		<param name="DSP3 XM f003:0" value="0 0 0 1 0 0 2 71 0 0 0 0 0 0 0 1 0 0 0 160 0 0 0 160 0 0 2 0 0 0 0 1 0 0 0 2 0 0 0 2 0 0 0 0 0 0 2 0 0 0 0 3 0 0 0 242 0 0 0 240 0 4 0 0 0 4 0 0 0 4 0 0 0 15 98 57 0 8 0 0 0 0 0 0 0 16 0 0 0 0 0 0 0 16 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 8 0 0 0 8 0 0 0 0 0 0 0 0 0 0 0 4 0 0 0 5 85 85 0 0 0 64 0 0 0 64 0 0 64 0 0 0 64 0 0 6 0 0 0 0 0 1 0 8 0 0 0 0 0 9 0 0 0 96 0 0 64 0 0 16 0 0 0 0 0 1 0 0 0 8 0 0 0 16 0 8 0 0 0 254 160 0 0 255 0 0 0 255 0 0 0 255 0 0 0 255 0 0 0 255 0 0 0 255 0 0 0 255 0 0 0 0 32 0 0 0 64 0 0 0 64 0 0 0 64 0 0 0 64 0 0 0 64 0 0 0 64 0 0 0 64 0 0 0 0 5 0 16 0 0 0 0 0 5 0 0 0 0 0 1 153 153 0 1 0 0 0 4 0 0 0 1 153 153 0 1 153 153 0 1 153 153 0 1 153 153 0 1 153 153 0 1 153 153 0 1 153 153 0 12 204 192 0 12 204 192 0 12 204 192 0 12 204 192 0 12 204 192 0 0 0 0 0 8 0 0 0 14 0 0 0 0 0 8 0 0 0 8 0 14 172 0 0 15 51 64 0 8 202 0 0 11 59 0 0 10 252 128 0 10 65 0 0 8 202 0 0 0 0 0 0 3 51 64 0 3 51 64 0 3 51 64 0 3 51 64 0 3 51 64 0 3 51 64 0 16 0 0 0 0 0 0 0 14 51 51 0 8 0 0 0 7 0 0 0 6 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 0 0 0 8 0 0 0 48 0 16 0 0 0 2 0 0 0 4 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 2 137 44 0 2 0 0" />
 		<param name="DSP3 XM f003:1" value="0 2 0 0 0 2 0 0 0 2 0 0 0 2 0 0 0 2 0 0 0 2 0 0 0 15 194 143 0 2 102 102 0 0 0 16 0 1 0 0 0 0 0 1 0 0 128 0 0 0 41 95 0 4 0 0 0 0 0 8 0 0 0 128 0 2 102 102 0 0 12 0 0 8 79 103 0 4 0 0 0 4 0 0 0 0 16 0 0 15 128 0 0 6 0 0 0 15 246 0 0 1 208 0 0 3 0 0 0 5 64 0 0 13 192 0 0 0 0 0 0 0 0 0 0 0 102 102 0 0 102 102 0 0 102 102 0 0 102 102 0 0 102 102 0 0 102 102 0 0 0 2 0 0 248 0 0 8 102 96 0 0 1 128 0 0 51 64 0 0 0 37 0 0 0 0 0 0 0 0 0 0 0 26 0 169 121 48 0 3 0 0 0 0 16 0 0 0 64 0 0 5 0 0 0 1 153 154 0 2 238 0 0 9 196 0 0 12 0 0 0 13 153 153 0 13 0 0 0 2 64 0 0 2 0 0 0 0 0 3 0 0 0 65 0 4 0 0 0 0 0 127 0 1 0 0 0 0 0 0 0 255 255 216 0 11 59 0 0 8 255 89 0 2 137 44 0 2 137 44 0 2 137 44 0 2 137 44 0 2 137 44 0 2 137 44 0 2 137 44 0 8 0 0 0 12 0 0 0 12 0 0 0 12 0 0 0 12 0 0 0 12 0 0 0 12 0 0 0 12 0 0 0 12 0 0 0 15 194 143 0 15 194 143 0 15 194 143 0 15 194 143 0 15 194 143 0 15 194 143 0 15 194 143 0 0 179 51 0 0 47 225 0 4 0 0 0 0 0 40 0 16 0 0 0 255 255 241 0 0 187 128 0 0 143 192 0 6 89 0 0 13 47 0 0 12 53 0 0 2 238 0 0 0 1 64 0 12 204 192 0 255 255 239 0 16 0 0 0 16 0 0 0 16 0 0 0 16 0 0 0 16 0 0 0 16 0 0 0 16 0 0 0 16 0 0 0 0 0 1 0 0 204 192 0 0 204 192 0 0 102 96 0 0 51 64 0 0 102 96 0 16 0 0 0 1 179 64 0 0 0 0 0 0 0 100 0 4 0 0 0 0 90 90" />
 	</path>
 
-    <path name="gain-incall_wb-headset-mic">
+	<path name="gain-incall_wb-headset-mic">
 		<ctl name="IN2L Volume" value="21" />
 		<ctl name="IN2L Digital Volume" value="128" />
 		<ctl name="LHPF1 Input 1 Volume" value="32" />
 	</path>
 
-    <path name="gain-incall_wb-headphone-mic">
+	<path name="gain-incall_wb-headphone-mic">
 		<ctl name="IN1L Digital Volume" value="140" />
 		<ctl name="LHPF1 Input 1 Volume" value="32" />
 	</path>
 
-    <path name="gain-incall_wb-bt-sco-headset-in">
+	<path name="gain-incall_wb-bt-sco-headset-in">
 		<ctl name="AIF2TX1 Input 1 Volume" value="32" />
 		<ctl name="AIF2TX2 Input 1 Volume" value="32" />
 		<ctl name="AIF1TX1 Input 1 Volume" value="32" />
 		<ctl name="AIF1TX2 Input 1 Volume" value="32" />
 	</path>
 
-    <path name="gain-camcorder-headset-mic">
-        <ctl name="IN2L Volume" value="30" />
-        <ctl name="IN2L Digital Volume" value="103" />
-        <ctl name="LHPF1 Input 1 Volume" value="32" />
-    </path>
+	<path name="gain-camcorder-headset-mic">
+		<ctl name="IN2L Volume" value="30" />
+		<ctl name="IN2L Digital Volume" value="103" />
+		<ctl name="LHPF1 Input 1 Volume" value="32" />
+	</path>
 
-    <path name="gain-camcorder-headphone-mic">
-        <ctl name="IN1L Digital Volume" value="128" />
-        <ctl name="LHPF1 Input 1 Volume" value="32" />
-        <ctl name="IN3L Digital Volume" value="128" />
-        <ctl name="LHPF2 Input 1 Volume" value="32" />
-    </path>
+	<path name="gain-camcorder-headphone-mic">
+		<ctl name="IN1L Digital Volume" value="128" />
+		<ctl name="LHPF1 Input 1 Volume" value="32" />
+		<ctl name="IN3L Digital Volume" value="128" />
+		<ctl name="LHPF2 Input 1 Volume" value="32" />
+	</path>
 
-    <!-- camcorder input volume -->
-    <path name="gain-camcorder-mic-oe">
-        <ctl name="IN1L Digital Volume" value="148" />
-        <ctl name="LHPF1 Input 1 Volume" value="36" />
-        <ctl name="IN3L Digital Volume" value="148" />
-        <ctl name="LHPF2 Input 1 Volume" value="36" />
-    </path>
+	<!-- voice_control_with_okgoogle input volume -->
+	<path name="gain-voice_control_with_okgoogle-mic">
+		<ctl name="IN1L Digital Volume" value="145" />
+		<param name="DSP6 ZM 6000d:0" value="0 112 0 0 0 0 0 16 0 0 0 1" />
+		<param name="DSP6 ZM 24:0" value="0 0 128 0 0 0 0 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 176 0 0 5 128 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 30 0 0 0 0" />
+	</path>
 
-    <!-- recognition input volume -->
+	<!-- voice_control_with_okgoogle input volume -->
+	<path name="gain-voice_control_with_okgoogle-headset-mic">
+		<ctl name="IN2L Volume" value="30" />
+		<ctl name="IN2L Digital Volume" value="129" />
+		<ctl name="LHPF1 Input 1 Volume" value="32" />
+		<ctl name="IN1L Digital Volume" value="145" />
+		<param name="DSP6 ZM 6000d:0" value="0 112 0 0 0 0 0 16 0 0 0 1" />
+		<param name="DSP6 ZM 24:0" value="0 0 128 0 0 0 0 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 176 0 0 5 128 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 30 0 0 0 0" />
+	</path>
+
+	<!-- camcorder input volume -->
+	<path name="gain-camcorder-mic-oe">
+		<ctl name="IN1L Digital Volume" value="148" />
+		<ctl name="LHPF1 Input 1 Volume" value="36" />
+		<ctl name="IN3L Digital Volume" value="148" />
+		<ctl name="LHPF2 Input 1 Volume" value="36" />
+	</path>
+
+	<!-- recognition input volume -->
 	<path name="gain-recognition-mic">
 		<ctl name="IN1L Digital Volume" value="145" />
 		<ctl name="LHPF1 Input 1 Volume" value="32" />
 	</path>
 
-        <path name="gain-recognition-headset-mic">
+		<path name="gain-recognition-headset-mic">
 		<ctl name="IN2L Volume" value="30" />
 		<ctl name="IN2L Digital Volume" value="129" />
 		<ctl name="LHPF1 Input 1 Volume" value="32" />
 	</path>
-    <!-- END - Stock Audio Gains -->
+	<!-- END - Stock Audio Gains -->
 
 	<!-- OSS Audio HAL Paths -->
 	<path name="none">
@@ -878,10 +1004,6 @@
 	</path>
 
 	<path name="headphones">
-		<!-- Route configuration -->
-		<path name="mute-speaker" />
-		<path name="unmute-headset" />
-		<!-- Output configuration -->
 		<path name="media-headset"/>
 		<path name="gain-media-headset"/>
 	</path>
@@ -889,10 +1011,8 @@
 	<path name="speaker-and-headphones">
 		<!-- Route configuration -->
 		<path name="unmute-speaker" />
-		<path name="unmute-headset" />
 		<!-- Output configuration -->
-		<path name="media-speaker"/>
-		<path name="media-headset"/>
+		<path name="media-speaker-headset"/>
 		<path name="gain-media-speaker-headset"/>
 	</path>
 
@@ -943,34 +1063,23 @@
 
 	<!-- Input -->
 	<path name="earpiece-mic">
-		<path name="capture_channel_left"/>
-		<path name="main-mic"/>
-		<path name="gain-media-mic"/>
+		<path name="communication-handset-mic"/>
+		<path name="gain-communication-handset-mic"/>
 	</path>
 
 	<path name="speaker-mic">
-		<path name="capture_channel_left"/>
-		<path name="main-mic"/>
-		<path name="gain-media-mic"/>
+		<path name="communication-speaker-mic"/>
+		<path name="gain-communication-speaker-mic"/>
 	</path>
 
 	<path name="headset-mic">
-		<!-- Call recording route -->
-                <ctl name="AIF1TX1 Input 1" value="LHPF1" />
-		<ctl name="AIF1TX2 Input 1" value="LHPF1" />
-		<ctl name="LHPF1 Input 1" value="IN2L"/>
-		<ctl name="Headset Mic Switch" value="1"/>
-                <path name="gain-media-headset-mic"/>
+		<path name="communication-headset-mic"/>
+		<path name="gain-communication-headset-mic"/>
 	</path>
-	
-	<path name="media-headset-mic">
-		<path name="capture_channel_left" />
-		<path name="headset-mic" />
-    </path>
 
 	<path name="voice-mic">
-		<path name="incall_nb-speaker-mic"/>
-		<path name="gain-incall_nb-speaker-mic"/>
+		<path name="incall_default-handset-mic"/>
+		<path name="gain-incall_default-handset-mic"/>
 	</path>
 
 	<path name="voice-earpiece-mic">
@@ -1018,23 +1127,19 @@
 		<path name="gain-media-bt-sco-headset-in"/>
 	</path>
 
-    <path name="camcorder-mic">
-        <path name="camcorder-mic-oe" />
-        <path name="gain-camcorder-mic-oe" />
-    </path>
+	<path name="camcorder-mic">
+		<path name="camcorder-mic-oe" />
+		<path name="gain-camcorder-mic-oe" />
+	</path>
 
 	<path name="voice-rec-mic">
-		<path name="capture_channel_left"/>
-		<path name="main-mic"/>
-		<path name="gain-recognition-mic"/>
+		<path name="voice_control_with_okgoogle-mic"/>
+		<path name="gain-voice_control_with_okgoogle-mic"/>
 	</path>
 
 	<path name="voice-rec-headset-mic">
-                <ctl name="AIF1TX1 Input 1" value="LHPF1" />
-		<ctl name="AIF1TX2 Input 1" value="LHPF1" />
-		<ctl name="LHPF1 Input 1" value="IN2L"/>
-		<ctl name="Headset Mic Switch" value="1"/>
-		<path name="gain-recognition-headset-mic"/>
+		<path name="voice_control_with_okgoogle-headset-mic"/>
+		<path name="gain-voice_control_with_okgoogle-headset-mic"/>
 	</path>
 	
 	<!-- END - OSS Audio HAL Paths -->
