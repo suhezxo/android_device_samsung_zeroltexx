@@ -66,10 +66,6 @@ vendor/lib64/libMcClient.so
 vendor/lib/libMcRegistry.so
 vendor/lib64/libMcRegistry.so
 
-# NFC - A810FXXU2CRL1 (O)
-vendor/lib/hw/nfc_nci.default.so|c6b2292323b827f3261ba33956604b90de8a29cd
-vendor/lib64/hw/nfc_nci.default.so|347836411179d98a47c7de7bf9e92ac00c5a742a
-
 # IR
 lib/hw/consumerir.exynos5.so:vendor/lib/hw/consumerir.exynos5.so
 lib64/hw/consumerir.exynos5.so:vendor/lib64/hw/consumerir.exynos5.so
