@@ -62,6 +62,4 @@ extract "${MY_DIR}/proprietary-files.txt" "${SRC}" "${KANG}" --section "${SECTIO
 # Fix proprietary blobs
 BLOB_ROOT="$ANDROID_ROOT"/vendor/"$VENDOR"/"$DEVICE"/proprietary
 
-"${PATCHELF}" --replace-needed libgui.so libsensor.so $BLOB_ROOT/bin/gpsd
-
 "${MY_DIR}/setup-makefiles.sh"
