@@ -1,4 +1,4 @@
-Device configuration for Samsung Galaxy S6 (SM-G920F, SM-G920I, SM-G920FD).
+Device configuration for Samsung Galaxy S6 Edge (SM-G925F, SM-G925I, SM-G925FD).
 ========================================
 
 Basic   | Specification List
