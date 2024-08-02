@@ -25,14 +25,14 @@ include device/samsung/universal7420-common/BoardConfigCommon.mk
 
 DEVICE_PATH := device/samsung/zeroltexx
 
+# Include path
+TARGET_SPECIFIC_HEADER_PATH += $(DEVICE_PATH)/include
+
 # Assert
 TARGET_OTA_ASSERT_DEVICE := zerolte,zeroltexx,zerolteskt
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
-
-# Include path
-TARGET_SPECIFIC_HEADER_PATH += $(DEVICE_PATH)/include
 
 # Init
 TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_zerolte
