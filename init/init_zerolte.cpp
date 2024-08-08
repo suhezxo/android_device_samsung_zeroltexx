@@ -50,6 +50,7 @@ void set_sim_info()
 	if (ReadFileToString(simslot_count_path, &simslot_count)) {
 		simslot_count = Trim(simslot_count); // strip newline
 		property_override("ro.multisim.simslotcount", simslot_count.c_str());
+		property_override("ro.vendor.multisim.simslotcount", simslot_count.c_str());
 	}
 	else {
 		LOG(ERROR) << "Could not open '" << simslot_count_path << "'\n";
