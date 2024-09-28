@@ -17,9 +17,9 @@
 LOCAL_PATH := device/samsung/zeroltexx
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_PATH)/lineage_zeroltexx.mk
+    $(LOCAL_PATH)/aosp_zeroltexx.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineage_zeroltexx-userdebug \
-    lineage_zeroltexx-user \
-    lineage_zeroltexx-eng
+    aosp_zeroltexx-userdebug \
+    aosp_zeroltexx-user \
+    aosp_zeroltexx-eng
