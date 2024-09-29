@@ -18,18 +18,16 @@ LOCAL_PATH := device/samsung/zeroltexx
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_m.mk)
 
 $(call inherit-product, $(LOCAL_PATH)/device.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_l.mk)
-
-# Inherit some common PixelOS stuff.
-$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
+# Inherit some common AICP stuff
+$(call inherit-product, vendor/aicp/config/common_full_phone.mk)
 
 # Set those variables here to overwrite the inherited values.
-PRODUCT_NAME := aosp_zeroltexx
+PRODUCT_NAME := aicp_zeroltexx
 PRODUCT_DEVICE := zeroltexx
 PRODUCT_MODEL := SM-G925F
 PRODUCT_BRAND := samsung
